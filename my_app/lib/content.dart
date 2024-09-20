@@ -1,12 +1,11 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 class SectionOneInRow extends StatelessWidget {
   final String city;
-
   final String time;
   final String weatherType;
+
   const SectionOneInRow({
     super.key,
     required this.city,
@@ -22,7 +21,7 @@ class SectionOneInRow extends StatelessWidget {
         Text(
           city,
           style: const TextStyle(
-            fontSize: 22,
+            fontSize: 30,
             color: Colors.white,
           ),
         ),
@@ -53,8 +52,8 @@ class SectionOneInRow extends StatelessWidget {
 
 class SectionTwoInRow extends StatelessWidget {
   final String iconPath;
-
   final double temperature;
+
   const SectionTwoInRow({
     super.key,
     required this.iconPath,
@@ -80,7 +79,7 @@ class SectionTwoInRow extends StatelessWidget {
             fontSize: 32,
             color: Colors.white,
           ),
-        )
+        ),
       ],
     );
   }
@@ -91,81 +90,40 @@ class WeatherHomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       backgroundColor: Colors.black12,
       body: SingleChildScrollView(
-          child: SafeArea(
-        child: Padding(
-          padding: EdgeInsets.all(16.0),
-          child: Column(
-            children: [
-              WeatherItem(
-                city: "Ho Chi Minh City",
-                time: "21:58",
-                weatherType: "Cloudy night",
-                temperature: 29.5,
-                backgroundPath: "assets/images/bg_light.png",
-                iconPath: "assets/svg/night_icon.svg",
-              ),
-              WeatherItem(
-                city: "Ha Noi",
-                time: "21:58",
-                weatherType: "Cloudy night",
-                temperature: 29.5,
-                backgroundPath: "assets/images/bg-night.png",
-                iconPath: "assets/svg/night_icon.svg",
-              ),
-              WeatherItem(
-                city: "Ho Chi Minh City",
-                time: "21:58",
-                weatherType: "Cloudy night",
-                temperature: 29.5,
-                backgroundPath: "assets/images/bg-night.png",
-                iconPath: "assets/svg/night_icon.svg",
-              ),
-              WeatherItem(
-                city: "Ho Chi Minh City",
-                time: "21:58",
-                weatherType: "Cloudy night",
-                temperature: 29.5,
-                backgroundPath: "assets/images/bg_light.png",
-                iconPath: "assets/svg/night_icon.svg",
-              ),
-              WeatherItem(
-                 city: "Ha Noi",
-                time: "21:58",
-                weatherType: "Cloudy night",
-                temperature: 29.5,
-                backgroundPath: "assets/images/bg_light.png",
-                iconPath: "assets/svg/night_icon.svg",
-              ),
-              WeatherItem(
-                city: "Ho Chi Minh City",
-                time: "21:58",
-                weatherType: "Cloudy night",
-                temperature: 29.5,
-                backgroundPath: "assets/images/bg-night.png",
-                iconPath: "assets/svg/night_icon.svg",
-              ),
-              WeatherItem(
-                city: "Ho Chi Minh City",
-                time: "21:58",
-                weatherType: "Cloudy night",
-                temperature: 29.5,
-                backgroundPath: "assets/images/bg-night.png",
-                iconPath: "assets/svg/night_icon.svg",
-              ),
-              WeatherItem(
-                   city: "Ha Noi",
-                  time: "21:58",
-                  weatherType: "Cloudy night",
-                  temperature: 29.5,
-                  backgroundPath: "assets/images/bg_light.png",
-                  iconPath: "assets/svg/night_icon.svg"),
-            ],
+        child: SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              children: [
+                ListView.builder(
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
+                  itemCount: 150,
+                  itemBuilder: (context, index) {
+                    // Rotating between 3 cities
+                    final cities = ['Hà Nội', 'Đà Nẵng', 'Nghệ An'];
+                    final city = cities[index % 3];
+
+                    return WeatherItem(
+                      city: city,
+                      time: "21:${index % 60}",
+                      weatherType: index % 2 == 0 ? "Cloudy night" : "Clear day",
+                      temperature: 25.0 + (index % 10),
+                      backgroundPath: index % 2 == 0
+                          ? "assets/images/bg_light.png"
+                          : "assets/images/bg-night.png",
+                      iconPath: "assets/svg/night_icon.svg",
+                    );
+                  },
+                ),
+              ],
+            ),
           ),
         ),
-      )),
+      ),
     );
   }
 }
@@ -177,6 +135,7 @@ class WeatherItem extends StatelessWidget {
   final double temperature;
   final String backgroundPath;
   final String iconPath;
+
   const WeatherItem({
     Key? key,
     required this.city,
@@ -193,14 +152,17 @@ class WeatherItem extends StatelessWidget {
       padding: const EdgeInsets.all(8),
       margin: const EdgeInsets.only(bottom: 32),
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(8),
-          image: DecorationImage(
-              image: AssetImage(backgroundPath), fit: BoxFit.cover)),
+        borderRadius: BorderRadius.circular(8),
+        image: DecorationImage(
+          image: AssetImage(backgroundPath),
+          fit: BoxFit.cover,
+        ),
+      ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           SectionOneInRow(city: city, time: time, weatherType: weatherType),
-          SectionTwoInRow(iconPath: iconPath, temperature: temperature)
+          SectionTwoInRow(iconPath: iconPath, temperature: temperature),
         ],
       ),
     );
