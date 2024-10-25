@@ -30,8 +30,9 @@ class LoginButton extends StatelessWidget {
         );
       },
       style: ElevatedButton.styleFrom(
-        padding: EdgeInsets.symmetric(horizontal: 100.0, vertical: 20.0),
+        padding: EdgeInsets.symmetric(horizontal: 120.0, vertical: 20.0),
         textStyle: TextStyle(fontSize: 20),
+      
       ),
       child: Text('Login'),
     );

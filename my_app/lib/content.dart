@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'weather_detail_screen.dart';
 
 class SectionOneInRow extends StatelessWidget {
   final String city;
@@ -148,22 +149,30 @@ class WeatherItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(8),
-      margin: const EdgeInsets.only(bottom: 32),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(8),
-        image: DecorationImage(
-          image: AssetImage(backgroundPath),
-          fit: BoxFit.cover,
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const WeatherDetailScreen()),
+        );
+      },
+      child: Container(
+        padding: const EdgeInsets.all(8),
+        margin: const EdgeInsets.only(bottom: 32),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(8),
+          image: DecorationImage(
+            image: AssetImage(backgroundPath),
+            fit: BoxFit.cover,
+          ),
         ),
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          SectionOneInRow(city: city, time: time, weatherType: weatherType),
-          SectionTwoInRow(iconPath: iconPath, temperature: temperature),
-        ],
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            SectionOneInRow(city: city, time: time, weatherType: weatherType),
+            SectionTwoInRow(iconPath: iconPath, temperature: temperature),
+          ],
+        ),
       ),
     );
   }
