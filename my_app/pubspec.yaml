@@ -60,6 +60,7 @@ dependencies:
   firebase_storage: ^12.3.4
   get_it: ^8.0.1
   shared_preferences: ^2.3.2
+  collection: ^1.18.0
 
 dev_dependencies:
   flutter_gen_runner:
@@ -114,6 +115,9 @@ flutter:
     - assets/images/language_ic.png
     - assets/images/product_logo.png
     - assets/svg/app_icon.svg
+    - assets/svg/es.svg
+    - assets/svg/us-flag.svg
+    - assets/svg/vietnam-flag.svg
     - .env
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

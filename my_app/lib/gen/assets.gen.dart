@@ -105,6 +105,9 @@ class $AssetsSvgGen {
   /// File path: assets/svg/day_icon.svg
   String get dayIcon => 'assets/svg/day_icon.svg';
 
+  /// File path: assets/svg/es.svg
+  String get es => 'assets/svg/es.svg';
+
   /// File path: assets/svg/night_icon.svg
   String get nightIcon => 'assets/svg/night_icon.svg';
 
@@ -117,6 +120,12 @@ class $AssetsSvgGen {
   /// File path: assets/svg/technical.svg
   String get technical => 'assets/svg/technical.svg';
 
+  /// File path: assets/svg/us-flag.svg
+  String get usFlag => 'assets/svg/us-flag.svg';
+
+  /// File path: assets/svg/vietnam-flag.svg
+  String get vietnamFlag => 'assets/svg/vietnam-flag.svg';
+
   /// File path: assets/svg/weather_icon.svg
   String get weatherIcon => 'assets/svg/weather_icon.svg';
 
@@ -126,10 +135,13 @@ class $AssetsSvgGen {
         appIcon,
         calendar,
         dayIcon,
+        es,
         nightIcon,
         option,
         sort,
         technical,
+        usFlag,
+        vietnamFlag,
         weatherIcon
       ];
 }
