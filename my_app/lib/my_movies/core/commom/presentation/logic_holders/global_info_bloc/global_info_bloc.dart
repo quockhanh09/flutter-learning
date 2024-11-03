@@ -4,13 +4,10 @@ import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_learning/my_movies/core/commom/domain/usecases/global_info_usecases.dart';
 
-
 import 'package:flutter_learning/my_movies/core/enums/status_state.dart';
 import 'package:flutter_learning/my_movies/core/services/logger_service.dart';
 import 'package:flutter_learning/my_movies/features/home/domain/entities/genre.dart';
 import 'package:flutter_learning/my_movies/features/home/domain/entities/image_configuration.dart';
-
-
 
 part 'global_info_event.dart';
 part 'global_info_state.dart';
@@ -41,8 +38,9 @@ class GlobalInfoBloc extends Bloc<GlobalInfoEvent, GlobalInfoState> {
         emit(state.copyWith(status: StatusState.idle));
       }
     });
+
     on<SetSavedLangCode>((event, emit) async {
-     final isSuccess = await usecase.setSavedLangCode(event.langCode);
+      final isSuccess = await usecase.setSavedLangCode(event.langCode);
       if (isSuccess) {
         final currentLocale = await usecase.getLocale();
         emit(state.copyWith(currentLocale: currentLocale));

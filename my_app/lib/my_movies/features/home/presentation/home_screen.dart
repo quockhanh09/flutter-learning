@@ -9,6 +9,7 @@ import 'package:flutter_learning/my_movies/features/home/presentation/widgets/he
 import 'package:flutter_learning/my_movies/features/home/presentation/widgets/movie_item.dart';
 import 'package:flutter_learning/my_movies/features/home/presentation/widgets/upcoming_section.dart';
 
+
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 

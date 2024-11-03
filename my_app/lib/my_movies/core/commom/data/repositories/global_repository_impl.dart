@@ -2,9 +2,7 @@
 import 'dart:ui';
 
 import 'package:flutter_learning/my_movies/core/commom/data/datasources/global_info_local_data_source.dart';
-import 'package:flutter_learning/my_movies/core/commom/data/repositories/global_repository.dart';
-
-
+import 'package:flutter_learning/my_movies/core/commom/domain/repositories/global_repository.dart';
 
 class GlobalRepositoryImpl implements GlobalRepository {
   final GlobalInfoLocalDatasource localDatasource;

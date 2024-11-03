@@ -4,9 +4,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_learning/firebase_options.dart';
 import 'package:flutter_learning/l10n/generated/app_localizations.dart';
-// import 'package:flutter_learning/lesson_19/navigator_demo/screens/not_found_page.dart';
-// import 'package:flutter_learning/lesson_22_23/forgot_password/forgot_password_screen.dart';
-
 import 'package:flutter_learning/my_movies/core/commom/presentation/logic_holders/global_info_bloc/global_info_bloc.dart';
 import 'package:flutter_learning/my_movies/core/services/injection_container.dart';
 import 'package:flutter_learning/my_movies/core/theme/my_theme.dart';
@@ -16,7 +13,6 @@ import 'package:flutter_learning/my_movies/features/home/presentation/home_scree
 import 'package:flutter_learning/my_movies/features/not_found_page.dart';
 import 'package:flutter_learning/my_movies/features/profile/presentation/profile_screen.dart';
 import 'package:flutter_learning/my_movies/root_page.dart';
-
 void main(List<String> args) async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
@@ -76,5 +72,6 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
 
 // NowPlayingMoviesScreen()
